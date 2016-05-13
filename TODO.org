@@ -1,0 +1,27 @@
+#+TITLE: TODO
+
+* Focus
+** Different elements (class, actor, note)
+** Toolbar with elements
+** Adding elements by mouse
+** Adding elements by keyboard
+** Adding associations by mouse
+** Adding associations by keyboard
+** Select assocations
+** Navigate associations by keyboard
+** Draw control points elements
+** Draw control points associations
+** Cheat-sheet UI component for shortcuts
+** Select multiple elements by mouse
+** Select multiple elements by keyboard
+* Backlog
+** Change cursor (pointer, hourglass)
+See https://wiki.libsdl.org/SDL_CreateSystemCursor
+** File browser
+** Styling
+** Auto routing
+** Auto layout
+** Save
+** Save As
+** Project
+** Library

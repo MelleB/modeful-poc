@@ -1,0 +1,29 @@
+
+<CurrentModeButton@ToggleButton>:
+    text: "Current Mode Button"
+    size_hint_x: None
+    group: "current_mode"
+    mode: None
+    allow_no_selection: False
+    on_state: self.parent.on_state(args)
+
+<ModeBar>:
+    id: modebar
+    canvas:
+        Color:
+            rgb: (.5, .5, .5)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    orientation: "horizontal"
+    CurrentModeButton:
+        text: "Command"
+        mode: "command"
+        state: "down"
+    CurrentModeButton:
+        text: "Link"
+        mode: "link"
+
+
+
+
