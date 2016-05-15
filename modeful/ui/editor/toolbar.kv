@@ -1,0 +1,30 @@
+
+<Toolbar>:
+    orientation: 'vertical'
+    padding: ["5dp"]
+    spacing: "5dp"
+    ToolbarItem:
+        tool: 'class'
+        label: 'Class'
+    Widget:
+        #filler
+
+
+<ToolbarItem>:
+    label: '<ITEM>'
+    size_hint: None, None
+    height: '40dp'
+    width: '40dp'
+    group: 'selected_tool'
+    allow_no_selection: False
+    canvas.before:
+        Color:
+            rgba: .5, .5, .5, 1.0
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    Label:
+        size: root.size
+        pos: root.pos
+        text: root.label
+

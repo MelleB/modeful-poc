@@ -1,7 +1,8 @@
 
 import collections
-import toml
 import importlib
+import uuid
+import toml
 
 from modeful.event import Event 
 
@@ -12,6 +13,9 @@ class Model(dict):
             super().__init__(*args, **kwargs)
             self.__dict__ = self
             self.__getattr__ = dict.__getitem__
+
+            if not hasattr(self, 'id'):
+                  self.id = str(uuid.uuid4())
 
       def on_change(self, fn, *args, children=False):
             self._has_listners = True

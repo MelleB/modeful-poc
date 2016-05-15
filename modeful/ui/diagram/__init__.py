@@ -3,6 +3,7 @@ from kivy.graphics import Color, Line, Rectangle
 from kivy.uix.widget import Widget
 from kivy.uix.scatter import ScatterPlane
 
+from modeful.event import Event
 from modeful.ui.behaviors.keyboardnavigationbehavior import KeyboardNavigationBehavior
 from modeful.ui.palette import White, LighterGray
 from modeful.ui.element.klass import Class
@@ -24,6 +25,13 @@ class Diagram(ScatterPlane, KeyboardNavigationBehavior):
     _rect = None
     _grid_lines_x = []
     _grid_lines_y = []
+
+    _selected_tool = 'class'
+
+    _type_mapping = {
+        'class': Class 
+    }
+    
     
     def __init__(self, model=None, **kwargs):
         super().__init__(**kwargs)
@@ -31,33 +39,31 @@ class Diagram(ScatterPlane, KeyboardNavigationBehavior):
         model.on_change(self.redraw)
         self.bind(size=self.redraw, pos=self.redraw)
 
+        Event.on(Event.TOOL_SELECTED, self.on_tool_selected)
+        Event.on(Event.MODEL_ELEMENT_ADDED_ + str(self.model.id), self.add_element)
+
+        for e in self.model.elements:
+            self.add_element(e)
+
+        for a in self.model.associations:
+            c = Association.from_model(a)
+            self.associations[a.id] = c
+            self.add_widget(c)
+
+    def add_element(self, model):
+        cls = self._type_mapping[model.type]
+        c = cls.from_model(model)
+        self.elements[model.id] = c
+        self.add_widget(c)
+
+    def on_tool_selected(self, tool_name):
+        self._selected_tool = tool_name
+
     def redraw(self, instance, value, *args):
         self._draw_grid()
-        self._draw_elements()
-        self._draw_associations()
-
-    def _draw_associations(self):
-        if self.model is None:
-            return
-
-        if not self.associations:
-            for a in self.model.associations:
-                c = Association.from_model(a)
-                self.associations[a.id] = c
-                self.add_widget(c)
 
     def get_element_by_id(self, id):
         return self.elements.get(id, None)
-
-    def _draw_elements(self):
-        if self.model is None:
-            return
-
-        if not self.elements:
-            for e in self.model.elements:
-                c = Class.from_model(e)
-                self.elements[e.id] = c
-                self.add_widget(c)
         
     def _draw_grid(self):
         with self.canvas.before:
@@ -111,9 +117,9 @@ class Diagram(ScatterPlane, KeyboardNavigationBehavior):
             if any(w.collide_point(*self.to_local(*touch.pos)) for w in self.children):
                 return super().on_touch_down(touch)
             self.class_count += 1
-            el = Class(self.to_local(*touch.pos))
-            el.text = 'Class %d' % self.class_count
-            self.add_widget(el)
+            Event.emit(Event.MODEL_ELEMENT_ADD_ + str(self.model.id), \
+                       self._selected_tool, \
+                       x=touch.pos[0], y=touch.pos[1], name='Class %d' % self.class_count)
             return True
         elif not in_visible_area:
             return False

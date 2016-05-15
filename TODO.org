@@ -1,7 +1,14 @@
 #+TITLE: TODO
 
 * Focus
-** Different elements (class, actor, note)
+** Class diagram elements:
+*** Class (abstract, template, interface)
+*** Relationship (generatlization, aggregation, composition, association)
+*** Data Types
+*** Enums
+*** Packages
+*** Note
+*** Boundary
 ** Toolbar with elements
 ** Adding elements by mouse
 ** Adding elements by keyboard
@@ -14,6 +21,7 @@
 ** Cheat-sheet UI component for shortcuts
 ** Select multiple elements by mouse
 ** Select multiple elements by keyboard
+** Replace modeful.event / models with Kivy's EventDispatcher/models
 * Backlog
 ** Change cursor (pointer, hourglass)
 See https://wiki.libsdl.org/SDL_CreateSystemCursor
@@ -25,3 +33,4 @@ See https://wiki.libsdl.org/SDL_CreateSystemCursor
 ** Save As
 ** Project
 ** Library
+** Modeful Website

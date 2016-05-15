@@ -33,6 +33,7 @@ a rewrite might be needed in a compiled language (C++/C#/...), we'll see...
 Installlation
 -------------
 NOTE: This is how it should work in the future!
+
 Install the latest published version using pip:
 .. code-block:: bash
 

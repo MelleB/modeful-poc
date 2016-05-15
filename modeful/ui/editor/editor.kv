@@ -1,0 +1,21 @@
+#: import Diagram modeful.ui.diagram.Diagram
+#: import ModeBar modeful.ui.modebar.ModeBar
+#: import ToolBar modeful.ui.editor.toolbar.Toolbar
+#: import Window kivy.core.window.Window
+
+<Editor>:
+    tabarea: tabarea
+    orientation: 'vertical'
+    ModeBar:
+        size_hint_y: None
+        height: '30dp'
+    BoxLayout:
+        orientation: 'horizontal'
+        Toolbar:
+            id: toolbar
+            size_hint_x: None
+            width: "50dp"
+        TabbedPanel:
+            id: tabarea
+            size: Window.size
+            do_default_tab: False

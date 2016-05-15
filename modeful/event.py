@@ -3,7 +3,7 @@ _callbacks = {}
 class Event():
 
     @staticmethod
-    def on(event_name, f = None, *args):
+    def on(event_name, f = None, *args, **kwargs):
         if f is not None:
             _callbacks[event_name] = _callbacks.get(event_name, []) + [(f, args)]
             return (f, args)
@@ -12,8 +12,8 @@ class Event():
 
 
     @staticmethod
-    def emit(event_name, *data):
-        [f(*(args + data)) for f, args in _callbacks.get(event_name, [])]
+    def emit(event_name, *data, **kwargs):
+        [f(*(args + data), **kwargs) for f, args in _callbacks.get(event_name, [])]
 
     @staticmethod
     def off(event_name, f):
@@ -33,7 +33,10 @@ _events = [
     'FILEBROWSER_CANCEL',
     'FILE_LOAD',
     'FILE_LOADED',
-    'FILE_SAVE'
+    'FILE_SAVE',
+    'TOOL_SELECTED',
+    'MODEL_ELEMENT_ADD_',
+    'MODEL_ELEMENT_ADDED_'
 ]
 for e in _events:
     setattr(Event, e, e)

@@ -1,12 +1,12 @@
 
 #From: https://github.com/kivy/kivy/blob/master/examples/widgets/tabbed_panel_showcase.py
-<CloseableHeader>
+<Tab>
     color: 0,0,0,0
     disabled_color: self.color
     # variable tab_width
     text: 'tabx'
     size_hint_x: None
-    width: self.texture_size[0] + 40
+    #width: self.texture_size[0] + 40
     BoxLayout:
         pos: root.pos
         size_hint: None, None
@@ -22,4 +22,4 @@
             Image:
                 source: 'tools/theming/defaulttheme/close.png'
                 on_touch_down:
-                    if self.collide_point(*args[1].pos): root.panel.remove_widget(root)
+                    if self.collide_point(*args[1].pos): self.parent.remove_widget(root)

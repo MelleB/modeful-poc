@@ -22,6 +22,7 @@ class ElementBase(KeyboardNavigationNode, Widget):
         c = cls(model)
         model.on_change(c.redraw)
         return c
+
     
     def redraw(self, *args):
         pass
