@@ -5,10 +5,10 @@ Status
 ------
 This is PRE-PRE-ALPHA software. Not in any usable state.
 To run it use:
-    `bin\modeful [filename]`
+    ``bin\modeful [filename]``
 
-Navigate the elements with the `h`, `j`, `k`, `l` keys,
-Open the filebrowser with `f o` (First press `f`, then `o`, as in: file, open)
+Navigate the elements with the ``h``, ``j``, ``k``, ``l`` keys,
+Open the filebrowser with ``f o`` (First press ``f``, then ``o``, as in: file, open)
 
 
 About
@@ -25,9 +25,9 @@ The first version of modeful is built using on Kivy_. It's a fantastic
 framework to create quick proof of concepts. If things get more serious
 a rewrite might be needed in a compiled language (C++/C#/...), we'll see...
 
-:: _vim: https://www.vim.org
-:: _emacs: https://www.gnu.org/software/emacs/
-:: _Kivy: https://kivy.org
+.. _vim: https://www.vim.org
+.. _emacs: https://www.gnu.org/software/emacs/
+.. _Kivy: https://kivy.org
 
 
 Installlation
@@ -65,4 +65,4 @@ License
 -------
 Modeful is released under GNU GPLv3, please see the LICENSE.txt_ file for the full license.
 
-:: _LICENSE.txt: ./LICENSE.txt
+.. _LICENSE.txt: ./LICENSE.txt
