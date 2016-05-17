@@ -1,6 +1,7 @@
 import kivy
 kivy.require('1.9.1')
 from kivy.app import App
+from kivy.config import Config
 from kivy.core.window import Window
 
 from modeful import __version__
@@ -16,6 +17,9 @@ class ModefulApp(App):
     def __init__(self, files=[]):
         super().__init__()
         self.root = ModedRoot(files=files)
+
+        # By default right click simulates mutli-touch in Kivy
+        Config.set("input", "mouse", "mouse, disable_multitouch")
 
     def build(self):
         Window.size = (1024, 768)

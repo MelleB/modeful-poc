@@ -9,7 +9,7 @@ class ClassDiagram(Diagram):
 
     prop_mapping = {
         'elements': {'class': ClassElement},
-        'associations': Association
+        'associations': { 'association': Association },
     }
 
     def __init__(self, *args, **kwargs):

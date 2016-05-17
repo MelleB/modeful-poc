@@ -1,52 +1,56 @@
 
+id = "0"
 type = "class-diagram"
 author = "MelleB"
 created_at = 2016-05-03T23:30:00
 
 [[elements]]
 type = "class"
-id = 1
+id = "1"
 name = "Person"
 pos = [100, 100]
 size = [100, 30]
      [[elements.attributes]]
+     id = "a1"
      name = "name"
      type = "string"
      [[elements.attributes]]
+     id = "a2"
      name = "age"
      type = "int"
 
 [[elements]]
 type = "class"
-id = 2
+id = "2"
 name = "Class 2"
 pos = [200, 400]
 size = [100, 30]
 
 [[elements]]
 type = "class"
-id = 3
+id = "3"
 name = "Class 3"
 pos = [300, 300]
 size = [100, 30]
 
 [[elements]]
 type = "class"
-id = 4
+id = "4"
 name = "Class 4"
 pos = [200, 500]
 size = [100, 30]
 
 [[associations]]
-id = 5
-src_id = 1
-dst_id = 4
+type = "association"
+id = "5"
+src_id = "1"
+dst_id = "4"
 #src_offset = (.9, 0)
 #dst_offset = (1, .25)
 #dst_marker = 'arrow'
 
 [[notes]]
-id = 6
+id = "6"
 pos = [400, 400]
 size = [250, 150]
 text = """

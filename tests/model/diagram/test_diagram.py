@@ -13,6 +13,11 @@ class DiagramTestCase(DiagramTestCaseWithClassModel):
         self.assertIsInstance(self.model, Diagram)
         
         e0 = self.model.elements[0]
-        self.assertEqual(e0, self.model.get_element_by_id(e0.id))
-        
+
+        def equal(attr):
+            self.assertEqual(
+                getattr(e0, attr),
+                getattr(self.model.get_element_by_id(e0.id), attr))
+
+        [equal(a) for a in ['id', 'type', 'pos', 'size', 'attributes']] 
 

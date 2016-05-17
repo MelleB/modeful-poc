@@ -8,7 +8,8 @@ class ClassElement(Model):
     y = 0
     size = (100, 30)
     name = 'Class'
-    
+
+    #TODO properties for abstract + interface
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.prop_to_model('attributes', ClassAttribute)

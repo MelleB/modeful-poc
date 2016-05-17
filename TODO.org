@@ -3,13 +3,15 @@
 * Focus
 ** Class diagram elements:
 *** Class (abstract, template, interface)
-*** Relationship (generatlization, aggregation, composition, association)
+**** Right click toggle abstract, interface
+**** Right click add attribute
+**** Right click on attribute/operation, remove move up, move down, visibility
+*** Relationship (generatlization, aggregation, composition)
 *** Data Types
 *** Enums
 *** Packages
 *** Note
 *** Boundary
-** Toolbar with elements
 ** Adding elements by mouse
 ** Adding elements by keyboard
 ** Adding associations by mouse

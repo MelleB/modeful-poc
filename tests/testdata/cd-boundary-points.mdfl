@@ -1,9 +1,9 @@
-id = 0
+id = "0"
 type = "class-diagram"
 
 [[elements]]
 type = "class"
-id = 1
+id = "1"
 name = "Class 1"
 x = 100
 y = 500
@@ -12,7 +12,7 @@ height = 30
 
 [[elements]]
 type = "class"
-id = 2
+id = "2"
 name = "Class 2"
 x = 500
 y = 100
@@ -21,7 +21,7 @@ height = 30
 
 [[elements]]
 type = "class"
-id = 3
+id = "3"
 name = "Class 3"
 x = 500
 y = 500
@@ -30,7 +30,7 @@ height = 30
 
 [[elements]]
 type = "class"
-id = 4
+id = "4"
 name = "Class 4"
 x = 100
 y = 100
@@ -38,12 +38,19 @@ width = 100
 height = 30
 
 [[associations]]
-id = 5
-src_id = 1
-dst_id = 2
+type = "association"
+id = "5"
+src_id = "1"
+dst_id = "2"
 
 [[associations]]
-id = 6
-src_id = 3
-dst_id = 4
+type = "association"
+id = "6"
+src_id = "3"
+dst_id = "4"
 
+[[associations]]
+type = "association"
+id = "7"
+src_id = "2"
+dst_id = "4"

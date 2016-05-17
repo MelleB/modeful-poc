@@ -1,14 +1,19 @@
-Modeful - A modeful diagram editor
-==================================
+Modeful - A diagram editor with modes
+=====================================
 
 Status
 ------
 This is PRE-PRE-ALPHA software. Not in any usable state.
 To run it use:
-    ``bin\modeful [filename]``
+
+.. code-block:: bash
+
+    bin/modeful [filenames ...]
 
 Navigate the elements with the ``h``, ``j``, ``k``, ``l`` keys,
 Open the filebrowser with ``f o`` (First press ``f``, then ``o``, as in: file, open)
+
+Example files can be found in the ``tests/testdata`` directory.
 
 
 About
@@ -18,10 +23,10 @@ Once you've felt the power of vim_, or emacs_, you sometimes wish more
 software would focus on power users. Enable them to create, modify and 
 navigate swiftly, without leaving home row.
 
-Modeful is focused on power users. The current state is a more of a proof
+Modeful is focused on power users. The current version is a proof
 of concept to show that modal editing indeed does work for diagram creation.
 
-The first version of modeful is built using on Kivy_. It's a fantastic
+This first version of modeful is built using on Kivy_. It's a fantastic
 framework to create quick proof of concepts. If things get more serious
 a rewrite might be needed in a compiled language (C++/C#/...), we'll see...
 
@@ -35,6 +40,7 @@ Installlation
 NOTE: This is how it should work in the future!
 
 Install the latest published version using pip:
+
 .. code-block:: bash
 
    pip install modeful

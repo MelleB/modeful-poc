@@ -46,21 +46,26 @@ class ElementBase(KeyboardNavigationNode, Widget):
             self.parent.set_active(self)
         return super().on_touch_down(touch)
 
+    
     def get_boundary_point(self, x, y):
         """ Return the point of boundary entry as seen from `pos` """
         dx = float(self.center_x - x)
         dy = float(self.center_y - y)
 
         sr = self.width / float(self.height)
-        r = dx / dy if dy != 0.0 else 1.0
+        r = dx / dy if dy != 0.0 else float('inf')
 
-        if abs(r) < sr: # entry at top/bottom
+        if abs(r) < sr and dy != 0.0: # entry at top/bottom
             p = self.width / 2.0 * (r/sr) * sign(dy)
             q = self.height / 2.0 * sign(dy)
+            
             return self.center_x - p, \
                    self.center_y - q
+        
         else: # entry at left/right
+            
             p = self.width / 2.0 * sign(dx)
-            q = self.height / r * sign(dx)
+            q = self.height / 2.0 / r * sign(dx)
+
             return self.center_x - p, \
                    self.center_y - q

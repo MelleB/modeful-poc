@@ -19,7 +19,7 @@ class Model(dict):
 
       def on_change(self, fn, *args, children=False):
             self._has_listners = True
-            Event.on('MODEL_CHANGE_' + str(self.id), fn, *args)
+            Event.on('MODEL_CHANGE_' + self.id, fn, *args)
 
             if children:
                   [self[p].on_change(fn, args, True) for p in self if isinstance(p, Model)]
@@ -27,7 +27,7 @@ class Model(dict):
       def __setattr__(self, name, value):
           super().__setattr__(name, value)
           if self._has_listners and name[0] != '_':
-                Event.emit('MODEL_CHANGE_' + str(self.id), self, name, value)
+                Event.emit('MODEL_CHANGE_' + self.id, self, name, value)
 
       def prop_to_model(self, prop_name, map_obj):
             if not prop_name in self:
@@ -36,8 +36,8 @@ class Model(dict):
             def helper(prop):
                   if isinstance(map_obj, dict):
                         if prop['type'] not in map_obj:
-                              print("Error: Unknown type %s found in property %s" \
-                                    % (prop['type'], prop.__name__))
+                              raise ValueError("Error: Unknown type %s found in property %s" \
+                                    % (prop['type'], map_obj))
                         else:
                               return map_obj[prop['type']](prop)
                   else:
