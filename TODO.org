@@ -12,6 +12,7 @@
 *** Packages
 *** Note
 *** Boundary
+** Remove EVENT_ + model.id events
 ** Adding elements by mouse
 ** Adding elements by keyboard
 ** Adding associations by mouse
@@ -26,7 +27,9 @@
 ** Replace modeful.event / models with Kivy's EventDispatcher/models
 * Backlog
 ** Change cursor (pointer, hourglass)
-See https://wiki.libsdl.org/SDL_CreateSystemCursor
+See https://wiki.libsdl.org/SDL_CreateSystemCursor 
+and https://github.com/kivy/kivy/commit/616be4835768aeed5cb7cc72ce51c19dac09d1a0 
+Opened issue on kivy repo: https://github.com/kivy/kivy/issues/4291
 ** File browser
 ** Styling
 ** Auto routing

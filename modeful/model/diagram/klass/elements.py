@@ -21,3 +21,6 @@ class ClassAttribute(Model):
 
 class Association(Model):
     pass
+
+class DirectedAssociation(Association):
+    pass

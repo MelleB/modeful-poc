@@ -10,6 +10,7 @@ from modeful.ui.palette import White, LighterGray
 from modeful.ui.element.klass import Class
 from modeful.ui.element import ElementBase
 from modeful.ui.diagram.association import Association
+from modeful.ui.diagram.directedassociation import DirectedAssociation
 from modeful.ui.relationship import Relationship, PartialRelationship
 
 from modeful.model.diagram.klass.diagram import ClassDiagram
@@ -34,7 +35,8 @@ class Diagram(ScatterPlane, KeyboardNavigationBehavior):
     _selected_tool = 'class'
     _type_mapping = { #TODO: Move to mapping class?
         'class': Class,
-        'association': Association
+        'association': Association,
+        'directed-association': DirectedAssociation
     }
     
     def __init__(self, model=None, **kwargs):
