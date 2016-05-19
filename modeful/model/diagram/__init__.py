@@ -28,6 +28,7 @@ class Diagram(Model):
         e = cls(type=type, **kwargs)
         e.diagram = self
         self.elements.append(e)
+        self.element_dict[e.id] = e
 
         Event.emit(Event.MODEL_ELEMENT_ADDED_ + self.id, e)
 

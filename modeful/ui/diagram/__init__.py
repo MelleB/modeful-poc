@@ -63,7 +63,7 @@ class Diagram(ScatterPlane, KeyboardNavigationBehavior):
         r = Relationship.from_model(cls, model)
         self.relationships[model.id] = r
         self.add_widget(r)
-        Clock.schedule_once(self.redraw, .1)
+        Clock.schedule_once(self.redraw)
 
         
     def add_element(self, model):
@@ -71,7 +71,7 @@ class Diagram(ScatterPlane, KeyboardNavigationBehavior):
         c = cls.from_model(model)
         self.elements[model.id] = c
         self.add_widget(c)
-        Clock.schedule_once(self.redraw, .1)
+        Clock.schedule_once(self.redraw)
 
         
     def on_tool_selected(self, tool_name):
@@ -161,7 +161,7 @@ class Diagram(ScatterPlane, KeyboardNavigationBehavior):
         child = next((c for c in self.children if c.collide_point(*self.to_local(*touch.pos))), None)
 
         #FIXME: Currently do not allow objects to add relationships to themselves.
-        #Should be part of the routing
+        #Should be fixed when routing is added
         if child and child != self._partial_relationship.src:
             Event.emit(Event.MODEL_RELATIONSHIP_ADD_ + self.model.id,
                        type=self._selected_tool,
