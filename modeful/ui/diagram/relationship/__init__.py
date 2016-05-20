@@ -1,3 +1,5 @@
+import math
+
 from kivy.uix.widget import Widget
 
 class Relationship(Widget):
@@ -52,4 +54,21 @@ class PartialRelationship(Widget):
         
         self.element.redraw(x1, y1, x2, y2)
 
+    
+class Trigonometry():
+
+    @staticmethod
+    def get_arrowhead_points(x1, y1, x2, y2, size):
+        """ Returns 3 coordinates of an arrow head pointing to (x2, y2). """
+
+        dx, dy = x2 - x1, y2 - y1
+        a = math.atan2(dy, dx) - math.pi / 2
+        a1 = math.pi / 3
+
+        p1x = x2 - math.cos(a + a1) * size
+        p1y = y2 - math.sin(a + a1) * size
+        p2x = x2 + math.cos(a - a1) * size
+        p2y = y2 + math.sin(a - a1) * size
+
+        return [p1x, p1y, x2, y2, p2x, p2y]
     

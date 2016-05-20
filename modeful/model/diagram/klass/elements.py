@@ -18,9 +18,11 @@ class ClassElement(Model):
 class ClassAttribute(Model):
     pass
 
-
 class Association(Model):
     pass
 
 class DirectedAssociation(Association):
+    pass
+
+class Generalization(Association):
     pass
