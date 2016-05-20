@@ -12,7 +12,6 @@
 *** Packages
 *** Note
 *** Boundary
-** Remove EVENT_ + model.id events
 ** Adding elements by mouse
 ** Adding elements by keyboard
 ** Adding associations by mouse

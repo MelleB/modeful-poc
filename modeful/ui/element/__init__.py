@@ -12,16 +12,15 @@ class ElementBase(KeyboardNavigationNode, Widget):
     def __init__(self, model, **kwargs):
         super().__init__()
         self.model = model
-
+        
+        self.model.bind(change=self.redraw)
         self.bind(size=self.redraw, pos=self.redraw, active=self.redraw)
         self.center_x, self.center_y = model.x, model.y
 
 
     @classmethod
     def from_model(cls, model):
-        c = cls(model)
-        model.on_change(c.redraw)
-        return c
+        return cls(model)
 
     
     def redraw(self, *args):

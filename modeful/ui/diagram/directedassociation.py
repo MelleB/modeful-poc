@@ -7,8 +7,8 @@ from modeful import sign
 
 class DirectedAssociation(Association):
 
-    def __init__(self, model, *args, **kwargs):
-        super().__init__(model, *args, **kwargs)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
         with self.canvas.before:
             Color(0, 0, 0, .5)

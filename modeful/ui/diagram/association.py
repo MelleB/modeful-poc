@@ -4,7 +4,7 @@ from kivy.uix.behaviors import FocusBehavior
 
 class Association(Widget, FocusBehavior):
 
-    def __init__(self, model, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         
         with self.canvas.before:

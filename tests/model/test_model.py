@@ -13,7 +13,7 @@ class ModelTestCase(DiagramTestCaseWithClassModel):
             ('class-diagram', ClassDiagram) 
         ]
         for s, expected in typestrs:
-            self.assertEqual(expected, Model.determine_model(s))
+            self.assertEqual(expected, Model._determine_model(s))
 
     def test_from_file(self):
         m = self.model
@@ -46,7 +46,7 @@ class ModelTestCase(DiagramTestCaseWithClassModel):
             ae(prop, 'name')
             ae(value, 'Test')
 
-        e.on_change(my_func)
+        e.bind(change=my_func)
         e.name = 'Test'
 
         self.assertTrue(self._cb_called)

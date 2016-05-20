@@ -42,12 +42,7 @@ class Diagram(ScatterPlane, KeyboardNavigationBehavior):
     def __init__(self, model=None, **kwargs):
         super().__init__(**kwargs)
         self.model = model
-        model.on_change(self.redraw)
-        self.bind(size=self.redraw, pos=self.redraw)
 
-        Event.on(Event.TOOL_SELECTED, self.on_tool_selected)
-        Event.on(Event.MODEL_ELEMENT_ADDED_ + self.model.id, self.add_element)
-        Event.on(Event.MODEL_RELATIONSHIP_ADDED_ + self.model.id, self.add_relationship)
 
         for e in self.model.elements:
             self.add_element(e)
@@ -58,6 +53,12 @@ class Diagram(ScatterPlane, KeyboardNavigationBehavior):
         with self.canvas.before:
             Color(*White)
             self._rect = Rectangle(pos=self.pos, size=self.size)
+
+        self.bind(size=self.redraw, pos=self.redraw)
+        Event.on(Event.TOOL_SELECTED, self.on_tool_selected)
+        self.model.bind(element_added=self.add_element,
+                        relationship_added=self.add_relationship,
+                        change=self.redraw)
 
             
     def add_relationship(self, model):
@@ -139,12 +140,12 @@ class Diagram(ScatterPlane, KeyboardNavigationBehavior):
         if in_visible_area and self.collide_point(*touch.pos):
             if touch.is_double_tap and not child and element_tool_selected:
                 self._class_counter += 1
-                Event.emit(Event.MODEL_ELEMENT_ADD_ + self.model.id,
-                           self._selected_tool,
-                           x=touch.pos[0], y=touch.pos[1], name='Class %d' % self._class_counter)
+                self.model.add_element(
+                    type=self._selected_tool,
+                    x=touch.pos[0], y=touch.pos[1], name='Class %d' % self._class_counter)
             elif child and association_tool_selected:
                 self._partial_relationship = PartialRelationship( \
-                    child, self._type_mapping[self._selected_tool](None))
+                    child, self._type_mapping[self._selected_tool]())
                 super().add_widget(self._partial_relationship)
             elif child:
                 return super().on_touch_down(touch)
@@ -165,7 +166,7 @@ class Diagram(ScatterPlane, KeyboardNavigationBehavior):
         #FIXME: Currently do not allow objects to add relationships to themselves.
         #Should be fixed when routing is added
         if child and child != self._partial_relationship.src:
-            Event.emit(Event.MODEL_RELATIONSHIP_ADD_ + self.model.id,
+            self.model.add_association(
                        type=self._selected_tool,
                        src_id = self._partial_relationship.src.model.id,
                        dst_id = child.model.id)
@@ -174,9 +175,3 @@ class Diagram(ScatterPlane, KeyboardNavigationBehavior):
         self._partial_relationship = None
             
         return True
-
-        
-            
-
-        
-        

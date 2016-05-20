@@ -27,7 +27,7 @@ class File():
     def __init__(self, filename):
         self.name = filename
         self.model = Model.from_file(filename)
-        self.model.on_change(self.on_model_change, children=True)
+        self.model.bind(change=self.on_model_change, children=True)
 
         Event.emit(Event.FILE_LOADED, self)
 

@@ -34,11 +34,7 @@ _events = [
     'FILE_LOAD',
     'FILE_LOADED',
     'FILE_SAVE',
-    'TOOL_SELECTED',
-    'MODEL_ELEMENT_ADD_',
-    'MODEL_ELEMENT_ADDED_',
-    'MODEL_RELATIONSHIP_ADD_',
-    'MODEL_RELATIONSHIP_ADDED_'
+    'TOOL_SELECTED'
 ]
 for e in _events:
     setattr(Event, e, e)

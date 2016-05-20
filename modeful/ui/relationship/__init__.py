@@ -4,14 +4,14 @@ class Relationship(Widget):
 
     @staticmethod
     def from_model(cls, model):
-        c = Relationship(model, cls(model))
-        model.on_change(c.redraw)
+        c = Relationship(model, cls())
         return c
 
     def __init__(self, model, element, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         self.model = model
+        self.model.bind(change=self.redraw)
         self.element = element
 
         self.add_widget(element)
@@ -20,8 +20,8 @@ class Relationship(Widget):
 
         src = self.model.diagram.get_element_by_id(self.model.src_id)
         dst = self.model.diagram.get_element_by_id(self.model.dst_id)
-        src.on_change(self.redraw)
-        dst.on_change(self.redraw)
+        src.bind(change=self.redraw)
+        dst.bind(change=self.redraw)
 
     def redraw(self, *_):
         src = self.parent.get_element_by_id(self.model.src_id)
