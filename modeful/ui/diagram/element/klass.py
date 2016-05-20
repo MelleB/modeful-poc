@@ -4,8 +4,8 @@ from kivy.uix.behaviors import DragBehavior, FocusBehavior
 from kivy.uix.widget import Widget
 from kivy.graphics import Color, Rectangle
 
+from modeful.ui.diagram.element import ElementBase
 from modeful.ui.editablelabel import EditableLabel
-from modeful.ui.element import ElementBase
 from modeful.ui.palette import LightBlue, Orange
 
 class Class(ElementBase, FocusBehavior, DragBehavior, EditableLabel):

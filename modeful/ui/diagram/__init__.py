@@ -7,11 +7,11 @@ from kivy.uix.scatter import ScatterPlane
 from modeful.event import Event
 from modeful.ui.behaviors.keyboardnavigationbehavior import KeyboardNavigationBehavior
 from modeful.ui.palette import White, LighterGray
-from modeful.ui.element.klass import Class
-from modeful.ui.element import ElementBase
-from modeful.ui.diagram.association import Association
-from modeful.ui.diagram.directedassociation import DirectedAssociation
-from modeful.ui.relationship import Relationship, PartialRelationship
+from modeful.ui.diagram.element.klass import Class
+from modeful.ui.diagram.element import ElementBase
+from modeful.ui.diagram.relationship.association import Association
+from modeful.ui.diagram.relationship.directedassociation import DirectedAssociation
+from modeful.ui.diagram.relationship import Relationship, PartialRelationship
 
 from modeful.model.diagram.klass.diagram import ClassDiagram
 

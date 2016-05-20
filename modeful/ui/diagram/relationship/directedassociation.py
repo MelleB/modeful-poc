@@ -2,7 +2,7 @@ import math
 
 from kivy.graphics import Color, Line
 
-from modeful.ui.diagram.association import Association
+from modeful.ui.diagram.relationship.association import Association
 from modeful import sign
 
 class DirectedAssociation(Association):
