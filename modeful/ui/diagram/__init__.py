@@ -5,7 +5,7 @@ from kivy.uix.widget import Widget
 from kivy.uix.scatter import ScatterPlane
 
 from modeful.event import Event
-from modeful.ui.behaviors.keyboardnavigationbehavior import KeyboardNavigationBehavior
+from modeful.ui.behaviors.keyboardnavigationbehavior import KeyboardNavigationBehavior, KeyboardNavigationNode
 from modeful.ui.palette import White, LighterGray
 from modeful.ui.diagram.element.klass import Class
 from modeful.ui.diagram.element import ElementBase
@@ -131,9 +131,10 @@ class Diagram(ScatterPlane, KeyboardNavigationBehavior):
 
                     
     def add_widget(self, w):
-        super().add_navigation_element(w)
         super().add_widget(w)
-        super().set_active(w)
+        if isinstance(w, KeyboardNavigationNode):
+            super().add_navigation_element(w)
+            super().set_active(w)
 
         
     def on_touch_down(self, touch):
