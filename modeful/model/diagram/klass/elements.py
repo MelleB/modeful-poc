@@ -26,3 +26,9 @@ class DirectedAssociation(Association):
 
 class Generalization(Association):
     pass
+
+class Aggregation(Association):
+    pass
+
+class Composition(Association):
+    pass

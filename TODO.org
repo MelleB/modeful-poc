@@ -6,15 +6,12 @@
 **** Right click toggle abstract, interface
 **** Right click add attribute
 **** Right click on attribute/operation, remove move up, move down, visibility
-*** Relationship (generatlization, aggregation, composition)
 *** Data Types
 *** Enums
 *** Packages
 *** Note
 *** Boundary
-** Adding elements by mouse
 ** Adding elements by keyboard
-** Adding associations by mouse
 ** Adding associations by keyboard
 ** Select assocations
 ** Navigate associations by keyboard

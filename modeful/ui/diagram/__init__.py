@@ -12,6 +12,8 @@ from modeful.ui.diagram.element import ElementBase
 from modeful.ui.diagram.relationship.association import Association
 from modeful.ui.diagram.relationship.directedassociation import DirectedAssociation
 from modeful.ui.diagram.relationship.generalization import Generalization
+from modeful.ui.diagram.relationship.aggregation import Aggregation
+from modeful.ui.diagram.relationship.composition import Composition
 from modeful.ui.diagram.relationship import Relationship, PartialRelationship
 
 from modeful.model.diagram.klass.diagram import ClassDiagram
@@ -38,7 +40,9 @@ class Diagram(ScatterPlane, KeyboardNavigationBehavior):
         'class': Class,
         'association': Association,
         'directed-association': DirectedAssociation,
-        'generalization': Generalization
+        'generalization': Generalization,
+        'aggregation': Aggregation,
+        'composition': Composition
     }
     
     def __init__(self, model=None, **kwargs):

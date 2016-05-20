@@ -6,7 +6,9 @@ from modeful.model.diagram import Diagram
 from modeful.model.diagram.klass.elements import ClassElement, \
                                                  Association, \
                                                  DirectedAssociation, \
-                                                 Generalization
+                                                 Generalization, \
+                                                 Aggregation, \
+                                                 Composition
 
 class ClassDiagram(Diagram):
 
@@ -14,7 +16,10 @@ class ClassDiagram(Diagram):
         'elements': {'class': ClassElement},
         'associations': { 'association': Association,
                           'directed-association': DirectedAssociation,
-                          'generalization': Generalization },
+                          'generalization': Generalization,
+                          'aggregation': Aggregation,
+                          'composition': Composition
+        },
     }
 
     def __init__(self, *args, **kwargs):
