@@ -7,8 +7,9 @@ from kivy.uix.scatter import ScatterPlane
 from modeful.event import Event
 from modeful.ui.behaviors.keyboardnavigationbehavior import KeyboardNavigationBehavior, KeyboardNavigationNode
 from modeful.ui.palette import White, LighterGray
-from modeful.ui.diagram.element.klass import Class
 from modeful.ui.diagram.element import ElementBase
+from modeful.ui.diagram.element.klass import Class
+from modeful.ui.diagram.element.note import Note
 from modeful.ui.diagram.relationship.association import Association
 from modeful.ui.diagram.relationship.directedassociation import DirectedAssociation
 from modeful.ui.diagram.relationship.generalization import Generalization
@@ -38,6 +39,7 @@ class Diagram(ScatterPlane, KeyboardNavigationBehavior):
     _selected_tool = 'class'
     _type_mapping = { #TODO: Move to mapping class?
         'class': Class,
+        'note': Note,
         'association': Association,
         'directed-association': DirectedAssociation,
         'generalization': Generalization,

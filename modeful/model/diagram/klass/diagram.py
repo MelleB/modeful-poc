@@ -8,17 +8,22 @@ from modeful.model.diagram.klass.elements import ClassElement, \
                                                  DirectedAssociation, \
                                                  Generalization, \
                                                  Aggregation, \
-                                                 Composition
+                                                 Composition, \
+                                                 Note
 
 class ClassDiagram(Diagram):
 
     prop_mapping = {
-        'elements': {'class': ClassElement},
-        'associations': { 'association': Association,
-                          'directed-association': DirectedAssociation,
-                          'generalization': Generalization,
-                          'aggregation': Aggregation,
-                          'composition': Composition
+        'elements': {
+            'class': ClassElement,
+            'note': Note
+        },
+        'associations': {
+            'association': Association,
+            'directed-association': DirectedAssociation,
+            'generalization': Generalization,
+            'aggregation': Aggregation,
+            'composition': Composition
         },
     }
 

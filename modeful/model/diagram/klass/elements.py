@@ -18,6 +18,9 @@ class ClassElement(Model):
 class ClassAttribute(Model):
     pass
 
+class Note(Model):
+    pass
+
 class Association(Model):
     pass
 

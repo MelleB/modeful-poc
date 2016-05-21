@@ -1,4 +1,5 @@
 
+from kivy.core.window import Window
 from kivy.uix.textinput import TextInput
 from kivy.properties import StringProperty
 
@@ -22,6 +23,13 @@ class AlignedTextInput(TextInput):
         
     def on_size(self, instance, value):
         self.redraw()
+
+    def insert_text(self, substring, from_undo=False):
+        if not from_undo:
+            # Unfocus on CTRL+ENTER
+            if 'ctrl' in Window.modifiers and substring == '\n':
+                self.focus = False
+        return super().insert_text(substring, from_undo=from_undo)
 
     def redraw(self):
         """ 

@@ -61,7 +61,7 @@ class KeyboardNavigationBehavior:
                 continue
 
             # Use a custom distance function, axis diff is more important than ort_axis diff
-            dist = d_axis**2 + d_ort_axis**2/2
+            dist = d_axis**2 + d_ort_axis**2/3
             if dist < best[1]:
                 best = (el, dist)
 
