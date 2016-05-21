@@ -9,9 +9,7 @@
 *** Data Types
 *** Enums
 *** Packages
-*** Note
 *** Boundary
-** Adding elements by keyboard
 ** Adding associations by keyboard
 ** Select assocations
 ** Navigate associations by keyboard
@@ -35,3 +33,4 @@ Opened issue on kivy repo: https://github.com/kivy/kivy/issues/4291
 ** Project
 ** Library
 ** Modeful Website
+** z-order?

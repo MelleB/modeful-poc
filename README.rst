@@ -1,19 +1,10 @@
 Modeful - A diagram editor with modes
 =====================================
 
-Status
-------
+WARNING
+-------
 This is PRE-PRE-ALPHA software. Not in any usable state.
-To run it use:
-
-.. code-block:: bash
-
-    bin/modeful [filenames ...]
-
-Navigate the elements with the ``h``, ``j``, ``k``, ``l`` keys,
-Open the filebrowser with ``f o`` (First press ``f``, then ``o``, as in: file, open)
-
-Example files can be found in the ``tests/testdata`` directory.
+Use at your own risk.
 
 
 About
@@ -21,7 +12,7 @@ About
 Modeful attempts to bring the power of modal editing to diagram software.
 Once you've felt the power of vim_, or emacs_, you sometimes wish more 
 software would focus on power users. Enable them to create, modify and 
-navigate swiftly, without leaving home row.
+navigate like true ninjas, without leaving home row.
 
 Modeful is focused on power users. The current version is a proof
 of concept to show that modal editing indeed does work for diagram creation.
@@ -35,22 +26,42 @@ a rewrite might be needed in a compiled language (C++/C#/...), we'll see...
 .. _Kivy: https://kivy.org
 
 
+Shortcuts
+---------
+Currently the following shortcuts are supported (and hard-coded, these
+are supposed to go to a separate config file)
+
+==========  ===========
+ Command     Shortcut
+==========  ===========
+Move left   ``h``
+Move down   ``j``
+Move up     ``k``
+Move right  ``l``
+Open file   ``f o``
+Add Class   ``a c``
+Add Note    ``a n``
+==========  ===========
+ 
+
 Installlation
 -------------
-NOTE: This is how it should work in the future!
-
-Install the latest published version using pip:
-
-.. code-block:: bash
-
-   pip install modeful
-
 Install the latest development version
 
 .. code-block:: bash
 
-   git clone https://github.com/Modeful/modeful-poc modeful
-   cd modeful && python setup.py
+   git clone https://github.com/Modeful/poc modeful-poc
+   cd modeful-poc && python setup.py
+
+(Note: As of yet I haven't acutally tested this...)
+
+To run it use:
+
+.. code-block:: bash
+
+    bin/modeful [filenames ...]
+
+Example files can be found in the ``tests/testdata`` directory.
 
 
 File format

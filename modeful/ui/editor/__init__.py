@@ -20,7 +20,9 @@ keymap_dict = {
         ('command.keyboard.down', 'j'),
         ('command.keyboard.left', 'h'),
         ('command.keyboard.right', 'l'),
-        ('command.file.open', 'f o')
+        ('command.file.open', 'f o'),
+        ('command.add.element.class', 'a c'),
+        ('command.add.element.note', 'a n')
     ],
     Mode.LINK: [
         ('command.func_x', 'C-l x'),

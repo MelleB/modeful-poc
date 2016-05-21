@@ -51,7 +51,6 @@ class Diagram(ScatterPlane, KeyboardNavigationBehavior):
         super().__init__(**kwargs)
         self.model = model
 
-
         for e in self.model.elements:
             self.add_element(e)
 
@@ -64,6 +63,8 @@ class Diagram(ScatterPlane, KeyboardNavigationBehavior):
 
         self.bind(size=self.redraw, pos=self.redraw)
         Event.on(Event.TOOL_SELECTED, self.on_tool_selected)
+        Event.on(Event.COMMAND_ADD_ELEMENT_CLASS, self.add_element_by_keyboard, 'class')
+        Event.on(Event.COMMAND_ADD_ELEMENT_NOTE, self.add_element_by_keyboard, 'note')
         self.model.bind(element_added=self.add_element,
                         relationship_added=self.add_relationship,
                         change=self.redraw)
@@ -84,6 +85,12 @@ class Diagram(ScatterPlane, KeyboardNavigationBehavior):
         self.add_widget(c)
         Clock.schedule_once(self.redraw)
 
+    def add_element_by_keyboard(self, type):
+        Event.emit(Event.TOOL_SELECTED, type)
+        self.model.add_element(
+                       type=type,
+                       x = 100,
+                       y = 100)
         
     def on_tool_selected(self, tool_name):
         self._selected_tool = tool_name
